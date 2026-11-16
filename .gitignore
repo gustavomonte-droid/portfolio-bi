@@ -1,0 +1,14 @@
+# Power BI
+*.pbix.bak
+*.pbi/
+~$*
+.pbi/
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
