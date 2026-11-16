@@ -1,22 +1,23 @@
-# Performance de Rede Móvel (dados simulados)
+# Qualidade de Voz da Rede Móvel — QoE (dados simulados)
 
 ## Contexto e problema
-Operadoras acompanham milhares de sites. O desafio é **achar rápido os desvios de performance**
-(queda de chamadas, acesso, vazão e latência) e priorizar a ação.
+Acompanhar a **eficiência (QoE) das chamadas** por regional, estado, município, site (ERB) e serviço
+(2G/3G, 4G VoLTE, 5G voNR) e **achar rápido onde a experiência do cliente está degradando**.
 
 ## Dados (`dados/telecom_rede_movel.xlsx`)
-`dim_calendario`, `dim_site`, `fato_kpi_diario` (24 mil linhas), `fato_incidentes`.
-Contém 10 sites com degradação propositalmente injetada — o dashboard deve revelá-los.
+- `fato_qoe_diario`: 126 mil linhas, 70 sites, 28 municípios, 14 estados, 2 anos diários.
+- `dim_calendario`.
+- Métricas: congestionamento, falhas técnicas, quedas, REL 31, REL 127, tentativas, chamadas OK e eficiência.
+- Eficiência = (tentativas − (cong. + falhas + quedas + REL 31 + REL 127)) / tentativas × 100 — global ≈ 93%.
 
 ## O que o dashboard mostra (sugestão)
-- KPIs: tráfego, queda %, acesso %, throughput, latência, disponibilidade
-- Mapa de sites por criticidade e ranking dos piores ofensores
-- Tendência diária com banda de desvio (média ± 2σ)
-- Incidentes por causa e severidade (Pareto) e MTTR
+- KPI de eficiência vs. meta, com variação contra o período anterior
+- Drill regional → estado → município → site, por serviço
+- Tendência diária com banda de desvio e destaque dos dias fora do padrão
+- Composição das perdas (congestionamento, falhas, quedas, REL 31, REL 127) e ranking dos piores sites
 
 ## Técnicas
-Power Query (ETL), modelo estrela, medidas DAX (YTD, variação vs. período anterior,
-detecção de desvio), tooltips e drill-through.
+Power Query (ETL), DAX (medida de eficiência ponderada, YTD, variação), hierarquia geográfica, drill-through.
 
 ## Resultados / insights
 _Preencha com 3 achados reais do seu dashboard._

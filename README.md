@@ -7,7 +7,7 @@ Todos os dados são **simulados** (gerados por `scripts/gerar_dados.py`) — nen
 
 | Projeto | Pergunta de negócio | Ferramentas | Arquivo |
 |---|---|---|---|
-| [Performance de Rede Móvel](projetos/telecom-performance-rede) | Quais sites estão degradando e qual o impacto na experiência do cliente? | Power BI, DAX, Power Query | `.pbix` |
+| [Qualidade de Voz da Rede Móvel (QoE)](projetos/telecom-performance-rede) | Onde a eficiência das chamadas está caindo (regional, estado, município, site, serviço) e por quê? | Power BI, DAX, Power Query | `.pbix` |
 | [Vendas Varejo](projetos/vendas-varejo) | Onde estão a receita, a margem e o desvio em relação à meta? | Power BI, DAX, Power Query | `.pbix` |
 
 > Adicione aqui um print de cada dashboard (pasta `docs/imagens`).
